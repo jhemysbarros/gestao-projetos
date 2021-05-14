@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import me.jhemysbarros.gestaoprojetos.entity.Cliente;
+import me.jhemysbarros.gestaoprojetos.entity.UF;
 import me.jhemysbarros.gestaoprojetos.repository.ClienteRepository;
 
 @Controller
@@ -41,6 +42,7 @@ public class ClienteController {
         ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         modelAndView.addObject("cliente", new Cliente());
+        modelAndView.addObject("ufs", UF.values());
 
         return modelAndView;
     }
@@ -50,6 +52,7 @@ public class ClienteController {
         ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         modelAndView.addObject("cliente", clienteRepository.getOne(id));
+        modelAndView.addObject("ufs", UF.values());
 
         return modelAndView;
     }
