@@ -1,17 +1,21 @@
-// package me.jhemysbarros.gestaoprojetos.entity;
+package me.jhemysbarros.gestaoprojetos.entity;
 
-// import javax.persistence.Entity;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
-// import javax.persistence.Id;
-// import javax.swing.Spring;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.swing.Spring;
 
-// @Entity
-// public class Cargo {
+@Entity
+public class Cargo extends Entidade {
 
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     private Long id;
+    @Column(nullable = false, length = 40, unique = true)
+    private String nome;
 
-//     private Spring nome;
-// }
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+}
