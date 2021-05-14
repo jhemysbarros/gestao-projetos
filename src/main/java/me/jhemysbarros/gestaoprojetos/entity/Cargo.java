@@ -16,6 +16,5 @@ public class Cargo extends Entidade {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    
+    }    
 }

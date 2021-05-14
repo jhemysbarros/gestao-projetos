@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import me.jhemysbarros.gestaoprojetos.entity.Funcionario;
 import me.jhemysbarros.gestaoprojetos.entity.UF;
+import me.jhemysbarros.gestaoprojetos.repository.CargoRepository;
 import me.jhemysbarros.gestaoprojetos.repository.FuncionarioRepository;
 
 @Controller
@@ -18,6 +19,9 @@ public class FuncionarioController {
 
     @Autowired
     private FuncionarioRepository funcionarioRepository;
+
+    @Autowired
+    private CargoRepository cargoRepository;
 
     @GetMapping
     public ModelAndView home() {
@@ -42,6 +46,7 @@ public class FuncionarioController {
         ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
 
         modelAndView.addObject("funcionario", new Funcionario());
+        modelAndView.addObject("cargos", cargoRepository.findAll());
         modelAndView.addObject("ufs", UF.values());
 
         return modelAndView;
@@ -52,6 +57,7 @@ public class FuncionarioController {
         ModelAndView modelAndView = new ModelAndView("funcionario/formulario");
 
         modelAndView.addObject("funcionario", funcionarioRepository.getOne(id));
+        modelAndView.addObject("cargos", cargoRepository.findAll());
         modelAndView.addObject("ufs", UF.values());
 
         return modelAndView;

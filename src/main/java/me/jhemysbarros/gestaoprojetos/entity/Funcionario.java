@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -21,6 +23,10 @@ public class Funcionario extends Pessoa {
     @DateTimeFormat(iso = ISO.DATE)
     private LocalDate dataDemissao;
 
+    @ManyToOne
+    @JoinColumn(name = "cargo_id_fk", nullable = false)
+    private Cargo cargo;
+
     public LocalDate getDataAdmissao() {
         return dataAdmissao;
     }
@@ -35,5 +41,13 @@ public class Funcionario extends Pessoa {
 
     public void setDataDemissao(LocalDate dataDemissao) {
         this.dataDemissao = dataDemissao;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 }
