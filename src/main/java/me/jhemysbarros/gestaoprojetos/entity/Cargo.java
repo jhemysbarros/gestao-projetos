@@ -2,7 +2,6 @@ package me.jhemysbarros.gestaoprojetos.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.swing.Spring;
 
 @Entity
 public class Cargo extends Entidade {
