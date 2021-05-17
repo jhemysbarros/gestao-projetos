@@ -17,10 +17,10 @@
                   <th>Nome</th>
                   <th>E-mail</th>
                   <th>Telefone</th>
-                  <th>Cidade</th>
+                  <!-- <th>Cidade</th>
                   <th>Estado</th>
                   <th>Admissão</th>
-                  <th>Demissão</th>
+                  <th>Demissão</th> -->
                   <th>Cargo</th>
                   <th>Ações</th>
                 </tr>
@@ -31,12 +31,12 @@
                   <td th:text="${funcionario.nome}">Clara Giovana Daniela Duarte</td>
                   <td th:text="${funcionario.email}">clara_giovana@gmail.com</td>
                   <td th:text="${funcionario.telefone}">(96) 98195-9127</td>
-                  <td th:text="${funcionario.endereco.cidade}">Rio de Janeiro</td>
+                  <!-- <td th:text="${funcionario.endereco.cidade}">Rio de Janeiro</td>
                   <td th:text="${funcionario.endereco.uf}">RJ</td>
                   <td th:text="${#temporals.format(funcionario.dataAdmissao)}">01/01/2020</td>
                   <td 
                     th:text="${funcionario.dataDemissao == null ? '-' : #temporals.format(funcionario.dataDemissao)}"
-                  >01/01/2021</td>
+                  >01/01/2021</td> -->
                   <td th:text="${funcionario.cargo.nome}">Desenvolvedor(a) Front End Jr</td>
                   <td>
                     <div class="btn-group">
