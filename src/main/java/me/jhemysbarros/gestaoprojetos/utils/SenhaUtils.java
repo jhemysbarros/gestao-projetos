@@ -9,4 +9,10 @@ public class SenhaUtils {
 
         return passwordEncoder.encode(senha);
     }
+
+    public static boolean matches(String senha, String hash){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+        return passwordEncoder.matches(senha, hash);
+    }
 }
