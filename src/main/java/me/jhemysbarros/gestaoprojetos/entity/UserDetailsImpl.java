@@ -3,7 +3,10 @@ package me.jhemysbarros.gestaoprojetos.entity;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import me.jhemysbarros.gestaoprojetos.enums.Perfil;
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -15,7 +18,9 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Perfil perfil = funcionario.getCargo().getNome().equals("Gerente") ? Perfil.ADMIN : Perfil.USER;
+
+        return AuthorityUtils.createAuthorityList(perfil.toString());
     }
 
     @Override
@@ -35,7 +40,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return funcionario.getDataDemissao() == null;
     }
 
     @Override

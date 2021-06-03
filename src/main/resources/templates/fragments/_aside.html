@@ -37,7 +37,7 @@
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
               <a th:href="@{/clientes/cadastrar}" class="nav-link">
                 <i class="nav-icon fas fa-edit nav-icon"></i>
                 <p>Cadastrar</p>
@@ -61,7 +61,7 @@
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
               <a th:href="@{/funcionarios/cadastrar}" class="nav-link">
                 <i class="nav-icon fas fa-edit nav-icon"></i>
                 <p>Cadastrar</p>
@@ -85,7 +85,7 @@
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
               <a th:href="@{/cargos/cadastrar}" class="nav-link">
                 <i class="nav-icon fas fa-edit nav-icon"></i>
                 <p>Cadastrar</p>
@@ -109,7 +109,7 @@
             </p>
           </a>
           <ul class="nav nav-treeview">
-            <li class="nav-item">
+            <li class="nav-item" sec:authorize="hasAuthority('ADMIN')">
               <a th:href="@{/projetos/cadastrar}" class="nav-link">
                 <i class="nav-icon fas fa-edit nav-icon"></i>
                 <p>Cadastrar</p>
