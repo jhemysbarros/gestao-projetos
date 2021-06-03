@@ -12,6 +12,7 @@ import me.jhemysbarros.gestaoprojetos.entity.Funcionario;
 import me.jhemysbarros.gestaoprojetos.enums.UF;
 import me.jhemysbarros.gestaoprojetos.repository.CargoRepository;
 import me.jhemysbarros.gestaoprojetos.repository.FuncionarioRepository;
+import me.jhemysbarros.gestaoprojetos.utils.SenhaUtils;
 
 @Controller
 @RequestMapping("/funcionarios")
@@ -63,8 +64,22 @@ public class FuncionarioController {
         return modelAndView;
     }
 
-    @PostMapping({ "/cadastrar", "/{id}/editar" })
-    public String salvar(Funcionario funcionario) {
+    @PostMapping("/cadastrar")
+    public String cadastrar(Funcionario funcionario) {
+
+        String senhaEncriptada = SenhaUtils.encode(funcionario.getSenha());
+        funcionario.setSenha(senhaEncriptada);
+
+        funcionarioRepository.save(funcionario);
+
+        return "redirect:/funcionarios";
+    }
+
+    @PostMapping("/{id}/editar")
+    public String editar(Funcionario funcionario, @PathVariable Long id) {
+        String senhaAtual = funcionarioRepository.getOne(id).getSenha();
+        funcionario.setSenha(senhaAtual);
+
         funcionarioRepository.save(funcionario);
 
         return "redirect:/funcionarios";
