@@ -1,4 +1,4 @@
-package me.jhemysbarros.gestaoprojetos.entity;
+package me.jhemysbarros.gestaoprojetos.enums;
 
 public enum UF {
 

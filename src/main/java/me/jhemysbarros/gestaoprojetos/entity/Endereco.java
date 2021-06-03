@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+import me.jhemysbarros.gestaoprojetos.enums.UF;
+
 @Entity
 public class Endereco extends Entidade {
 
